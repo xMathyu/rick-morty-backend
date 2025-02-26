@@ -9,6 +9,7 @@ import {
   Character,
   Info,
   CharacterFilter,
+  Location,
 } from './../interfaces/rick-and-morty.interface';
 
 /**
@@ -19,7 +20,7 @@ import {
 @Injectable()
 export class CharactersService {
   private readonly db: admin.firestore.Firestore;
-  private readonly baseUrl = 'https://rickandmortyapi.com/api/character';
+  private readonly baseUrl = `${process.env.API_URL}/character`;
 
   constructor() {
     this.db = admin.firestore();
@@ -56,6 +57,27 @@ export class CharactersService {
         }
         throw new InternalServerErrorException(
           `Error fetching characters: ${error.message}`,
+        );
+      }
+      throw error;
+    }
+  }
+
+  /**
+   * Fetch all locations from the external Rick and Morty API
+   */
+  async fetchLocationsFromApi(): Promise<Info<Location[]>> {
+    const url = `${process.env.API_URL}/location`;
+    try {
+      const { data } = await axios.get<Info<Location[]>>(url);
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 404) {
+          return { info: undefined, results: [] };
+        }
+        throw new InternalServerErrorException(
+          `Error fetching locations: ${error.message}`,
         );
       }
       throw error;

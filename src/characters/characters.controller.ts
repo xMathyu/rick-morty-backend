@@ -34,6 +34,15 @@ export class CharactersController {
   }
 
   /**
+   * GET /characters/locations
+   * Calls the external Rick & Morty API to fetch all locations.
+   */
+  @Get('locations')
+  async getLocations() {
+    return this.charactersService.fetchLocationsFromApi();
+  }
+
+  /**
    * POST /characters
    * Creates a custom character in Firestore.
    */
