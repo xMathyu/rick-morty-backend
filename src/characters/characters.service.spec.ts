@@ -1,6 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CharactersService } from './characters.service';
 
+jest.mock('firebase-admin', () => ({
+  firestore: jest.fn(() => ({
+    collection: jest.fn(() => ({
+      add: jest.fn(),
+      get: jest.fn(),
+      doc: jest.fn(() => ({
+        get: jest.fn(),
+        update: jest.fn(),
+        delete: jest.fn(),
+      })),
+    })),
+  })),
+  initializeApp: jest.fn(),
+}));
+
 describe('CharactersService', () => {
   let service: CharactersService;
 
