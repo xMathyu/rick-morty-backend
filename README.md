@@ -1,99 +1,136 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="_blank">
+    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
+  </a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Rick & Morty Backend API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is the **rick-morty-backend** application built with the [NestJS](https://nestjs.com/) framework. It provides a scalable and efficient API to manage data and functionalities related to the Rick and Morty universe. The application integrates with cloud services to enable automated deployments, high availability, and optimal performance—leveraging Cloud Run/Cloud Functions, API Gateway, caching configurations, and automated deployment pipelines.
 
-## Description
+> **Note:** You can also view this documentation on a public Notion page.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## Table of Contents
 
-```bash
-$ npm install
-```
+- [Overview](#overview)
+- [Project Setup](#project-setup)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [Running and Testing](#running-and-testing)
+- [Deployment](#deployment)
+  - [Cloud Run/Cloud Functions and API Gateway](#cloud-runcloud-functions-and-api-gateway)
+  - [Caching Configuration](#caching-configuration)
+  - [Automated Deployment](#automated-deployment)
+- [Notes and Considerations](#notes-and-considerations)
+- [Resources](#resources)
+- [Support](#support)
+- [License](#license)
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## Overview
 
-# watch mode
-$ npm run start:dev
+This API serves as the backend for an application exploring the Rick and Morty universe, providing RESTful endpoints to query characters, episodes, and locations. It includes caching mechanisms to enhance performance and is deployed on cloud platforms to ensure scalability and robustness.
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Run tests
+## Project Setup
 
-```bash
-# unit tests
-$ npm run test
+### Backend Setup
 
-# e2e tests
-$ npm run test:e2e
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your_username/rick-morty-backend.git
 
-# test coverage
-$ npm run test:cov
-```
+Install dependencies:
+bash
+Copy
+npm install
+Configure environment variables:
+Copy the .env.example file to .env and adjust the values according to your environment:
+bash
+Copy
+cp .env.example .env
+Start the server in development mode:
+bash
+Copy
+npm run start:dev
+Frontend Setup
+If you have a frontend interacting with this API, please follow the instructions in its respective repository. Ensure the API base URL is correctly configured for seamless communication.
 
-## Deployment
+Running and Testing
+To compile and run the project, use the following commands:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+bash
+Copy
+# Development mode
+npm run start
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+# Watch mode (for development)
+npm run start:dev
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+# Production mode
+npm run start:prod
+To run tests:
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+bash
+Copy
+# Unit tests
+npm run test
 
-## Resources
+# End-to-end tests (E2E)
+npm run test:e2e
 
-Check out a few resources that may come in handy when working with NestJS:
+# Test coverage
+npm run test:cov
+Deployment
+Cloud Run/Cloud Functions and API Gateway
+The API can be deployed on Google Cloud using Cloud Run or Cloud Functions. It is also recommended to use an API Gateway to manage and secure access to the API.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Deploying on Cloud Run
+Build the Docker image:
 
-## Support
+docker build -t gcr.io/your_project_id/rick-morty-backend .
+Push the image to Google Container Registry:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+docker push gcr.io/your_project_id/rick-morty-backend
+Deploy to Cloud Run:
 
-## Stay in touch
+gcloud run deploy rick-morty-backend --image gcr.io/your_project_id/rick-morty-backend --platform managed --region your_region
+Deploying on Cloud Functions
+Adapt the code to be compatible with a cloud function and deploy with:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+gcloud functions deploy rickMortyBackend --runtime nodejs20 --trigger-http --allow-unauthenticated
+Caching Configuration
+To enhance API performance, it is recommended to use caching solutions (e.g., Redis or Google Cloud's built-in caching). Configure your application to cache responses from high-traffic endpoints, reducing latency and database load.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Automated Deployment
+Integration with Cloud Build and Google Cloud Deploy simplifies automating the deployment cycle. Below is a basic example:
+
+Cloud Build
+Create a cloudbuild.yaml file with the following steps to build, test, and package the application:
+
+# Steps:
+- name: 'node:20'
+  entrypoint: 'npm'
+  args: ['install']
+- name: 'node:20'
+  entrypoint: 'npm'
+  args: ['run', 'test']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/rick-morty-backend', '.']
+images:
+- 'gcr.io/$PROJECT_ID/rick-morty-backend'
+
+# Google Cloud Deploy
+Set up a deployment pipeline to promote the application to different environments (e.g., staging and production). Refer to the official documentation for advanced configurations.
+
+Notes and Considerations
+Environment Variables: Ensure all required variables for database connections and external services are properly configured.
+Quotas and Limits: Check Google Cloud quotas to avoid unexpected costs.
+Monitoring and Logging: Implement monitoring and logging solutions to track performance and detect issues early.
+Updates: Keep dependencies up-to-date to ensure security and stability.
+Documentation: Consider maintaining this documentation on a public Notion page for easier access and collaboration.
